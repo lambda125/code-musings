@@ -1,28 +1,26 @@
-﻿<Page x:Class="SampleApp.MainPage"
+﻿<Page x:Class="Metro.Controls.Demo.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:Controls="using:Metro.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="using:SampleApp"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      IsTabStop="false"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" IsTabStop="false"
       mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
-        <TextBlock x:Name="txDate"
-                   Margin="519,295,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   FontSize="42"
-                   Text="{Binding ElementName=datePicker,
-                                  Path=SelectedValue}"
-                   TextWrapping="Wrap" />
-
-        <Controls:DatePicker x:Name="datePicker"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center" />
-
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Vertical">
+            <Button Content="Date Sample" Click="OnSampleMenuItemClick" Margin="10" 
+                    Tag="Metro.Controls.Demo.Samples.DateSample" HorizontalAlignment="Stretch" />
+            <Button Content="Webview Host Sample" Click="OnSampleMenuItemClick" Margin="10,0,10,10" 
+                    Tag="Metro.Controls.Demo.Samples.WebViewHostSample" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+        
+        <Border Grid.Column="1" BorderThickness="1,0,0,0" BorderBrush="White" Margin="10,0,0,0">
+            <Frame x:Name="SampleFrame" />
+        </Border>
     </Grid>
 </Page>
